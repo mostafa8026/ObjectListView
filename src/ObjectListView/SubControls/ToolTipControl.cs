@@ -304,7 +304,15 @@ namespace BrightIdeasSoftware
                 if (hfont == IntPtr.Zero)
                     return Control.DefaultFont;
                 else
-                    return Font.FromHfont(hfont);
+                    try
+                    {
+                        return Font.FromHfont(hfont);
+                    }
+                    catch (ArgumentException)
+                    {
+                        // Sometimes the tooltip returns a font handle that is invalid. In this case, we return the default font.
+                        return Control.DefaultFont;
+                    }
             }
             set {
                 Font newFont = value ?? Control.DefaultFont;

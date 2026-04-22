@@ -30,7 +30,9 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("2.9.4.*")]
+// Keep the assembly version stable so incremental builds across projects
+// continue to resolve the same strong-named ObjectListView identity.
+[assembly: AssemblyVersion("2.9.4.0")]
 [assembly: AssemblyFileVersion("2.9.4.0")]
-[assembly: AssemblyInformationalVersion("2.9.2")]
+[assembly: AssemblyInformationalVersion("2.9.4")]
 [assembly: System.CLSCompliant(true)]
